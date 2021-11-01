@@ -61,3 +61,18 @@ def process_newsResults(news_list):
                     news_results.append(news_object)
 
     return news_results
+
+def process_sourcesResults(sources_list):
+        '''
+        Function that processes the sources results and transforms them to a list of objects
+        '''
+        sources_results = []
+        for source_item in sources_list:
+                name = source_item.get('name')
+                description = source_item.get('description')
+                source_url = source_item.get('url')
+
+                source_object = Sources(name,description,source_url)
+                sources_results.append(source_object)
+                
+        return sources_results
