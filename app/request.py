@@ -50,9 +50,9 @@ def process_newsResults(news_list):
     news_results = []
     for news_item in news_list:
         id = movie_item.get('id')
-        title = movie_item.get('original_title')
-        overview = movie_item.get('overview')
-        poster = movie_item.get('poster_path')
+        title = news_item.get('title')
+        description = news_item.get('description')
+        publishedAt = news_item.get('publishedAt')
         vote_average = movie_item.get('vote_average')
         vote_count = movie_item.get('vote_count')
 
