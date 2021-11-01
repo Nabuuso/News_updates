@@ -1,7 +1,7 @@
 from flask import render_template
 from app import app
 from flask_bootstrap import Bootstrap
-from request import get_news, get_sources 
+from .request import get_news, get_sources 
 
 # News
 @app.route('/')
@@ -11,7 +11,7 @@ def index():
     news root page function that returns the index page and its data
     '''
 
-    # Getting News
+    # Getting News, sources
     title = 'Home - Welcome to News Updates'
     country_news = get_news('Kenya')
     news_source = get_sources()
