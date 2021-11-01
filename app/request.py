@@ -1,10 +1,10 @@
 from app import app
 import urllib.request,json
-from .models import news, sources, entertainment
+from .models import news, sources
 
 News= news.News
 Sources = sources.Sources
-Entertainment = entertainment.Entertainment
+
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -15,8 +15,6 @@ news_base_url = app.config["NEWS_UPDATES_BASE_URL"]
 # Getting the sources base url
 sources_base_url = app.config["NEWS_SOURCE_BASE_URL"]
 
-# Getting the entertainment news base url
-entertainment_base_url = app.config["NEWS_ENTERTAINMENT_BASE_URL"]
 
 def get_news(world):
     '''
@@ -62,6 +60,25 @@ def process_newsResults(news_list):
 
     return news_results
 
+def get_sources():
+            '''
+    Function that gets the json response to our url request
+            '''
+            get_sources_url = sources_base_url.format(api_key)
+            with urllib.request.urlopen(get_sources_url) as url:
+                
+                    get_sources_data = url.read()
+                    get_sources_response = json.loads(get_sources_data)
+
+                    sources_results = None
+                    
+                    if get_sources_response['sources']:
+                            sources_result_list = get_sources_response['sources']
+                            sources_results = process_sourcesResults(sources_result_list)
+
+                    return sources_results
+
+    
 def process_sourcesResults(sources_list):
         '''
         Function that processes the sources results and transforms them to a list of objects
