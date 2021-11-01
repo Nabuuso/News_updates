@@ -13,6 +13,6 @@ def index():
 
     # Getting News
     title = 'Home - Welcome to News Updates'
-    country_news = get_news()
+    country_news = get_news('Kenya')
     news_source = get_sources()
     return render_template('index.html', title = title, country = country_news, sources = news_source)

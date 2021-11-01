@@ -16,11 +16,11 @@ news_base_url = app.config["NEWS_UPDATES_BASE_URL"]
 sources_base_url = app.config["NEWS_SOURCE_BASE_URL"]
 
 
-def get_news(world):
+def get_news(country):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = news_base_url.format(world,api_key)
+    get_news_url = news_base_url.format(country,api_key)
     
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
