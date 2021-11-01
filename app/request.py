@@ -39,25 +39,25 @@ def get_news(world):
 
 def process_newsResults(news_list):
     '''
-    Function  that processes the movie result and transform them to a list of Objects
+    Function  that processes the news result and transform them to a list of Objects
 
     Args:
-        movie_list: A list of dictionaries that contain movie details
+        news_list: A list of dictionaries that contain news details
 
     Returns :
-        movie_results: A list of movie objects
+        news_results: A list of news objects
     '''
     news_results = []
     for news_item in news_list:
-        id = movie_item.get('id')
-        title = news_item.get('title')
-        description = news_item.get('description')
-        publishedAt = news_item.get('publishedAt')
-        vote_average = movie_item.get('vote_average')
-        vote_count = movie_item.get('vote_count')
+            title = news_item.get('title')
+            description = news_item.get('description')
+            publishedAt = news_item.get('publishedAt')
+            content = news_item.get('content')
+            url = news_item.get('url')
+            img_url = news_item.get('urlToImage')
 
-        if poster:
-            movie_object = Movie(id,title,overview,poster,vote_average,vote_count)
-            movie_results.append(movie_object)
+            if img_url:
+                    news_object = News(title,description,publishedAt,content,url,img_url)
+                    news_results.append(news_object)
 
-    return movie_results
+    return news_results
