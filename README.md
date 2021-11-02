@@ -12,7 +12,7 @@ To get the code..
 
 1. Cloning the repository:
   ```bash
-  git clone 
+  git clone https://github.com/Nabuuso/News_updates.git
   ```
 2. Move to the folder and install requirements
   ```bash
@@ -39,3 +39,14 @@ Open the application on your browser `127.0.0.1:5000`.
 * [Python3.6](https://www.python.org/)
 * [Flask](http://flask.pocoo.org/)
 * [Heroku](https://heroku.com)
+
+## Known Bugs
+* There are no known bugs currently.
+
+## Contact Information 
+
+If you have any question or contributions, please email me at [wagabaliz@gmail.com]
+
+## License
+* *MIT License:*
+* Copyright (c) 2021 **Sr Betty Nabuuso(fsp)**
