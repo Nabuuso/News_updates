@@ -12,7 +12,8 @@ def index():
     '''
 
     # Getting News, sources
-    title = 'Home - Welcome to News Updates'
-    country_news = get_news('Kenya')
+    title= 'News Updates'
+    country_news = get_news('us')
     news_source = get_sources()
-    return render_template('index.html', title = title, country = country_news, sources = news_source)
+    # return render_template('index.html', title = title, country = country_news, sources = news_source)
+    return "Hello world"
