@@ -1,19 +1,21 @@
 from flask import render_template
-from app import app
-from flask_bootstrap import Bootstrap
-from .request import get_news, get_sources 
+from . import app
+from .request import get_sources
 
-# News
 @app.route('/')
 def index():
-
     '''
-    news root page function that returns the index page and its data
+    View root page function that returns the index page and its data
     '''
+    # Getting popular movie
+    business_source = get_sources()
+    # print(business_source)
+    title = 'Home - Welcome to The best Movie Review Website Online'
+    return render_template('index.html')#,business_sources = business_source
 
-    # Getting News, sources
-    title= 'News Updates'
-    country_news = get_news('us')
-    news_source = get_sources()
-    # return render_template('index.html', title = title, country = country_news, sources = news_source)
-    return "Hello world"
+@app.route('/articles/<int:article_id>')
+def articles(article_id):
+    '''
+    View news page function that returns the news details page and its data
+    '''
+    return render_template('articles.html',id = article_id)
