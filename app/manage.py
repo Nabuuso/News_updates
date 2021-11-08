@@ -8,8 +8,6 @@ app = create_app()
 manager = Manager(app)
 manager.add_command('server', Server)
 
-def create_app():
-    app = create_app()
 
 
 @manager.command
