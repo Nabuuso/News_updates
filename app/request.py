@@ -1,6 +1,6 @@
 import urllib.request
 import json
-from .models import Source, Articles
+from .models import sources, articles
 
 
 api_key = ''
@@ -52,7 +52,7 @@ def process_results(source_list):
         url = source_item.get('url')
         category=source_item.get('category')
         if id:
-            source_object = Source(id,name,description,url,category)
+            source_object = sources(id,name,description,url,category)
             source_results.append(source_object)
 
     return source_results
@@ -93,7 +93,7 @@ def process_results_articles(articles_list):
 
 
         if urlToImage:
-            articles_object = Articles(author, title, description, url, urlToImage, publishedAt, content)
+            articles_object = articles(author, title, description, url, urlToImage, publishedAt, content)
             articles_results.append(articles_object)
 
     return articles_results
